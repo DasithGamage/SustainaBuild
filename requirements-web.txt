@@ -1,0 +1,4 @@
+-r requirements-dashboard.txt
+fastapi==0.144.0
+uvicorn==0.54.0
+pydantic>=2.0,<3
