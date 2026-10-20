@@ -22,6 +22,7 @@ function tourBanner() {
   return `<section class="walkthrough" aria-label="Guided demonstration"><span class="tour-count">DEMO ${S.tour + 1} / ${tourSteps.length}</span><div><h3>${title}</h3><p>${text}</p></div><div class="tour-controls"><button id="tour-back" ${S.tour === 0 ? 'disabled' : ''}>Back</button><button id="tour-next" class="next-tour">${S.tour === tourSteps.length - 1 ? 'Finish tour' : 'Next →'}</button><button id="tour-close" aria-label="Close guided demonstration">×</button></div></section>`;
 }
 function snapshotBanner() {
+  if (window.SB_ENGINE_DATA) return `<div class="snapshot-banner"><b>Runs in your browser.</b> The building simulator, rule-based and lookahead controllers and our three trained networks (DQN, REINFORCE, A2C) run here in JavaScript, ported from our Python code and checked against its results. All 213 validation and test days, custom scenarios and manual control are available.</div>`;
   return window.SB_DEMO ? `<div class="snapshot-banner"><b>Recorded demonstration.</b> These are actual outputs exported from the Python simulator and saved policies. Explore two historical days and four preset scenarios. Manual control and custom settings run in the <a href="${esc(window.SB_DEMO.repo)}" target="_blank" rel="noopener">local Python app</a>.</div>` : '';
 }
 function liveReadings() {
