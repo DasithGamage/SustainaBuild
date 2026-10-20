@@ -107,3 +107,15 @@ Runtime depends on the machine. In the saved Colab run, the first tuning sweep t
 - Every run is seeded (`set_seed`). Tuning uses seeds 0 and 1; final runs use seeds 100, 101 and 102.
 - Hyperparameter selection uses validation days. The original numerical-integration check also inspected a test heatwave before final evaluation; use training/validation days for future model-design checks.
 - PyTorch CPU results can differ slightly between machines and versions, so numbers may not match the saved outputs to the last decimal.
+
+## Static website build (runs in the browser)
+
+`frontend/engine.js` is a JavaScript port of `sustainabuild_core.py` (building model, environment, rule-based and two-step lookahead controllers) plus forward passes of the saved DQN, REINFORCE and A2C networks. It answers the same API requests as `sustainabuild_web.py`, so the full interface (all 213 validation/test days, custom scenarios and manual control) works on a static host without Python.
+
+```bash
+python export_web_engine.py <output-folder>               # index.html + assets/, ready to host
+python export_web_engine.py <output-folder> --reference   # also writes Python reference results
+node review/check_engine.mjs <output-folder>               # compares the JavaScript engine with Python
+```
+
+The check covers 6 scenarios × 213 days × 5 controllers: every hourly action matched and the largest numerical difference was below 1e-13.
