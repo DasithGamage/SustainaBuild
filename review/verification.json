@@ -1,0 +1,56 @@
+{
+  "trained_from_scratch": false,
+  "policies": {
+    "DQN": "seed 101; validation objective 10.80",
+    "REINFORCE": "seed 102; validation objective 13.43",
+    "A2C": "seed 101; validation objective 10.97"
+  },
+  "checks": [
+    "Finite observations, battery bounds, energy conservation and 24-step termination: all 5 controllers at 4 equipment settings",
+    "All four saved scenario tables reproduced to displayed precision across all nine final RL checkpoints and both conventional controllers; latency excluded",
+    "Dashboard full replay, empty comparison selection with mandatory reference/focus, combined stress/zero-PV replay, and ZIP export",
+    "Final dashboard scenario labels and full-day chart timing verified",
+    "Editable notebook environment and rule definitions match the exported core structurally",
+    "Local browser: all five controllers loaded; replay, objective tab, evidence tab and downloadable ZIP verified; preview saved"
+  ],
+  "free_float_hottest_weekday": {
+    "date": "2024-02-19",
+    "corrected_peak_c": 33.55430529336578,
+    "previous_half_cooling_peak_c": 26.084847472164114
+  },
+  "comfort_diagnostic": [
+    {
+      "controller": "Rule-based",
+      "hourly_mean_degree_hours": 1.85994867068883,
+      "integrated_degree_hours": 2.120922638248825
+    },
+    {
+      "controller": "Lookahead (2-step)",
+      "hourly_mean_degree_hours": 2.6814456784313485,
+      "integrated_degree_hours": 2.8150714021455383
+    },
+    {
+      "controller": "DQN",
+      "hourly_mean_degree_hours": 5.55984751226454,
+      "integrated_degree_hours": 6.068214693046445
+    },
+    {
+      "controller": "REINFORCE",
+      "hourly_mean_degree_hours": 0.0,
+      "integrated_degree_hours": 0.09190098932501378
+    },
+    {
+      "controller": "A2C",
+      "hourly_mean_degree_hours": 1.2844650932134165,
+      "integrated_degree_hours": 1.2900632310859355
+    }
+  ],
+  "review_runtime": {
+    "torch": "2.14.1",
+    "gymnasium": "1.4.0",
+    "numpy": "2.3.5",
+    "pandas": "3.0.1",
+    "gradio": "6.30.0",
+    "plotly": "7.1.0"
+  }
+}

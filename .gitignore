@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+.gradio/
+.dashboard_cache/
+Google Drive/
+ColabNoteBooks/
+*.pdf
+*.docx
+*.pkl
+*.log
+.env
+.env.*
+!.env.example
+.ipynb_checkpoints/
+review/*-preview.jpg
+review/studio-*.jpg
